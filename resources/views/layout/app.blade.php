@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Labs - Design Studio</title>
+	<title>Labs Projet Finale</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Labs - Design Studio">
 	<meta name="keywords" content="lab, onepage, creative, html">

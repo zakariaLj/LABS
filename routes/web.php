@@ -30,6 +30,7 @@ return view('pageContact');
 Route::get('/element', function () {
 return view('pageElement');
 });
+// -------------------------------------------------------------
 
 // Route la page Admin
 
@@ -37,12 +38,18 @@ Route::get('/admin', function () {
 return view('admin');
 });
 
-// Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+// -------------------------------------------------------------
+
+// Route Auth
 
 Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('admin');
 
+// -------------------------------------------------------------
 
+// Route::resource('Menu','MenuController');
+
+Route::resource('/Menu/Liens','LienController');
+Route::resource('/Menu/Logo','LogoController');
