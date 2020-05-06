@@ -30,8 +30,22 @@
 <body>
 	<!-- Header section -->
 	<header class="header-section">
-		<div class="logo">
-			<img src="img/logo.png" alt=""><!-- Logo -->
+	<div class="logo">
+		@if ($logo != null)
+			<img style="width: 100px;" src="{{asset('storage/'. $logo->Logo_path)}}" alt="">
+				
+		@else
+			<img src="img/logo.png" alt="">
+		
+		@endif
+
+
+
+
+
+
+	
+			
 		</div>
 		<!-- Navigation -->
 		<div class="responsive"><i class="fa fa-bars"></i></div>

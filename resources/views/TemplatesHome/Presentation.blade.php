@@ -22,7 +22,12 @@
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<img src="img/video.jpg" alt="">
-							<a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+							@if ($video != null)
+								<a href="{{$video->Video}}" class="video-popup">
+							@else
+								<a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+							@endif
+							
 								<i class="fa fa-play"></i>
 							</a>
 						</div>

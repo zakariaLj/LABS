@@ -238,9 +238,19 @@ return [
                         'text' => 'Liens',
                         'url' => 'Menu/Liens ',
                         ],
-                    ]
+                    ],
                 ],
-
+                
+             [
+             'text' => 'Carousel',
+             'icon' => 'fas fa-fw fa-images',
+             'url' => '/Carousel',
+             ],
+             [
+             'text' => 'Video',
+             'icon' => 'fas fa-fw fa-video',
+             'url' => 'Videoplay/index',
+             ],
 
             ],
         ],

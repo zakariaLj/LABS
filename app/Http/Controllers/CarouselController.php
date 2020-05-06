@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-class MenuController extends Controller
+use App\Http\Requests\CarouselRequest;
+use App\Carousel;
+class CarouselController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,15 +15,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menu = Menu::find(1);
-        if($menu != null)
-        {
-            return view('Menu.index',compact('menu'));
-
-        }
-        else{
-            return view('Menu.index');
-        }
+        $carousels = Carousel::all();
+        return view('Carousel.index',compact('carousels'));
     }
 
     /**
@@ -31,10 +26,8 @@ class MenuController extends Controller
      */
     public function create()
     {
-        $menu = Menu::find(1);
-        return view('Menu.create',compact('menu'));
-
         
+        return view('Carousel.create');
     }
 
     /**
@@ -43,16 +36,17 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarouselRequest $request)
     {
-      $menu = new Menu();
-      
-      $menu->Name = request('Nom');
-      $menu->Logo = request('logo')->store('img');
-      $menu->Lien = request('lien');
+        $carousel  = new Carousel();
 
-      $menu->save();
-      return redirect()->route('Menu.index',compact('menu'));
+        $carousel->Description   = request('description');
+        $carousel->Carousel_path = request('img')->store('img');
+
+        $carousel->save();
+
+        return redirect()->route('Carousel.index');
+
     }
 
     /**
@@ -74,7 +68,9 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $carousel = Carousel::find($id);       
+
+        return view('Carousel.edit',compact('carousel'));
     }
 
     /**
@@ -84,9 +80,21 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CarouselRequest $request, $id)
     {
-        //
+        $carousel = Carousel::find($id);
+
+        if(request('img') != null)
+        {
+            storage::delete($carousel->Carousel_path);
+            $carousel->Carousel_path = request('img')->store('img');
+        }
+
+        $carousel->Carousel_path = request('img')->store('img');
+        $carousel->Description = request('description');
+
+        $carousel->save();
+        return redirect()->route('Carousel.index');
     }
 
     /**
@@ -97,6 +105,12 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carousel = Carousel::find($id);
+
+        Storage::delete($carousel->Carousel_path);
+
+        $carousel->delete();
+
+        return redirect()->back();
     }
 }

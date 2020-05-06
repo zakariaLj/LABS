@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLogoTable extends Migration
+class CreateVideoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateLogoTable extends Migration
      */
     public function up()
     {
-        Schema::create('logo', function (Blueprint $table) {
+        Schema::create('video', function (Blueprint $table) {
             $table->id();
-            $table->string('Logo_path',50);
+            $table->string('Video',100);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateLogoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logo');
+        Schema::dropIfExists('video');
     }
 }
