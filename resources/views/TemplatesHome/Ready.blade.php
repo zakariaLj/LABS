@@ -5,12 +5,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<h2>{{$ready->Titre}}</h2>
-					<p>{{$ready->Soustitre}}</p>
+						@if (!empty($ready) != null)
+							<h2>{{$ready->Titre}}</h2>
+					      	<p>{{$ready->Soustitre}}</p>
+						@else
+							<h2>titre</h2>
+					      	<p>texte</p>							<a href="/contact" class="site-btn btn-2">dede</a>
+						@endif
+
 				</div>
 				<div class="col-md-3">
 					<div class="promo-btn-area">
-						<a href="/contact" class="site-btn btn-2">{{$ready->Nombtn}}</a>
+						@if (!empty($ready) != null)
+							<a href="/contact" class="site-btn btn-2">{{$ready->Nombtn}}</a>
+						@else
+							<a href="/contact" class="site-btn btn-2">dede</a>
+						@endif
+						
 					</div>
 				</div>
 			</div>

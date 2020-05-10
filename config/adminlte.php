@@ -314,6 +314,11 @@ return [
              'icon' => 'fas fa-phone',
              'url' => 'Contact/index',
              ],
+             [
+             'text' => 'Mails',
+             'icon' => 'fas fa-envelope',
+             'url' => 'Message/mail',
+             ],
             ],
         ],
 

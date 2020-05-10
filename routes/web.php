@@ -12,6 +12,8 @@ use App\Teamer;
 use App\Team;
 use App\Titre;
 use App\Ready;
+use App\Contact;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,8 @@ Route::get('/', function () {
     $titre = Titre::find(1);
     $teams = Team::all();
     $ready = Ready::find(1);
+    $contact = contact::find(1);
+
     return view('pageHome',compact('logo',
     'carousels',
     'video',
@@ -50,8 +54,9 @@ Route::get('/', function () {
     'teamer',
     'teams',
     'titre',
-'ready'));
-});
+    'ready',
+'contact',));
+})->name('home');
 Route::get('/service', function () {
     $logo = Logo::find(1);
 return view('pageService',compact('logo'));
@@ -73,10 +78,11 @@ return view('pageElement',compact('logo'));
 // Route la page Admin
 
 Route::get('/admin', function () {
-return view('admin');
+    $messages = Message::all();
+return view('admin',compact('messages'));
 });
 
-
+Route::get('/Message/mail','MessageController@index')->name('message.index');
 // -------------------------------------------------------------
 
 // Route Auth
@@ -148,3 +154,7 @@ Route::post('Ready/edit','ReadyController@update')->name('ready.update');
 Route::get('Contact/index','ContactController@index')->name('contact.index');
 Route::get('Contact/edit','ContactController@edit')->name('contact.edit');
 Route::post('Contact/edit','ContactController@update')->name('contact.update');
+
+//ROute Messages: Mails
+
+Route::post('TemplateHome/Contact','MessageController@store')->name('message.store');

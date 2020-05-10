@@ -34,21 +34,29 @@
 				</div>
 				<!-- contact form -->
 				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form">
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="text" name="name" placeholder="Your name">
+					<form class="form-class" id="con_form" action="{{route('message.store')}}" method="POST">
+						@csrf
+							<div class="row">
+								<div class="col-sm-6">
+									<input type="text" name="nom" placeholder="Your name">
+								</div>
+								<div class="col-sm-6">
+									<input type="text" name="email" placeholder="Your email">
+								</div>
+								<div class="col-sm-12">
+									<input type="text" name="subject" placeholder="Subject">
+									<textarea name="message" placeholder="Message"></textarea>
+									@if (!empty($contact) != null)
+									<button class="site-btn">{{$contact->Nombtn}}</button>	
+									@else
+										
+									<button class="site-btn">send</button>
+									@endif
+								</div>
 							</div>
-							<div class="col-sm-6">
-								<input type="text" name="email" placeholder="Your email">
-							</div>
-							<div class="col-sm-12">
-								<input type="text" name="subject" placeholder="Subject">
-								<textarea name="message" placeholder="Message"></textarea>
-								<button class="site-btn">send</button>
-							</div>
-						</div>
-					</form>
+						</form>
+				
+					
 				</div>
 			</div>
 		</div>
