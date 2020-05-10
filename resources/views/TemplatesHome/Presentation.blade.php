@@ -4,7 +4,12 @@
 		<div class="about-contant">
 			<div class="container">
 				<div class="section-title">
-					<h2>Get in <span>the Lab</span> and discover the world</h2>
+					@if (!empty($presentation) != null)
+					<h2>Get in <span>{{$presentation->TextVert}}</span> and discover the world</h2>
+						
+					@else
+						<h2>Get in <span>text a mettre en vert</span> and discover the world</h2>
+					@endif
 				</div>
 				<div class="row">
 					<div class="col-md-6">
@@ -15,7 +20,13 @@
 					</div>
 				</div>
 				<div class="text-center mt60">
-					<a href="" class="site-btn">Browse</a>
+					@if (!empty($presentation) != null)
+						<a href="/contact" class="site-btn">{{$presentation->NomBtn}}</a>
+						
+					@else
+						<a href="/contact" class="site-btn">Nom btn</a>
+					@endif
+					
 				</div>
 				<!-- popup video -->
 				<div class="intro-video">

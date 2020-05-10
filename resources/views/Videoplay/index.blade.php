@@ -20,7 +20,7 @@
                   <tbody>
                    <tr>
                        <th>
-                           {{$video->Video}}
+                           {{(!empty($video) ? $video->Video : '')}}
                        </th>
                    </tr>
                   </tbody>

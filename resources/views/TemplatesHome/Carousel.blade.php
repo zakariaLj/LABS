@@ -13,7 +13,7 @@
 				@endif
 
 
-				<p>{{!empty($carousel) ? $carousel->Description :   'Get your zak freebie template now!' }}</p>
+				<p>{{!empty($carousel) ? $carousel->Description :   '' }}</p>
 			</div>
 		</div>
 		<!-- slider -->

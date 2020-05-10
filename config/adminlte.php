@@ -251,7 +251,69 @@ return [
              'icon' => 'fas fa-fw fa-video',
              'url' => 'Videoplay/index',
              ],
+             
+             [
+             'text' => 'Presentation',
+             'icon' => 'far fa-file-powerpoint',
+             'url' => 'Presentation/index',
+             ],
+             [
+             'text' => 'Testimoniale',
+             'icon' => 'fab fa-gratipay',
+             'submenu' =>[
+                     [
+                     'text' => 'Titre',
+                     'url' => 'Testimoniales/Titre/index ',
+                     ],
+                     [
+                     'text' => 'testimoniales',
+                     'url' => 'Testimoniales/Testimoniale',
+                     ],
+                
 
+             ],
+             ],
+             [
+             'text' => 'Service',
+             'icon' => 'fas fa-poll',
+             'url' => 'Service',
+             ],
+
+                [
+                'text' => 'Teams',
+                'icon' => 'fas fa-users',
+                'url' => '/Menu',
+                'submenu' =>[
+                    [
+                    'text' => 'Titre',
+                    'url' => 'Teams/Titre/index ',
+                    ],
+                    [
+                    'text' => 'Team',
+                    'url' => '',
+                    'submenu'=>[
+                    [
+                    'text' => 'CEO',
+                    'url' => 'Teams/Ceo/index ',
+                    ],
+                    [
+                    'text' => 'Employé',
+                    'url' => 'Teams/Team ',
+                    ],
+                    ]
+                    ],
+                ],
+                ],
+             [
+             'text' => 'Ready',
+             'icon' => 'fas fa-book-reader',
+             'url' => 'Ready/index',
+             ],
+             [
+             'text' => 'Contact',
+             'icon' => 'fas fa-phone',
+             'url' => 'Contact/index',
+             ],
             ],
         ],
 

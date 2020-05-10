@@ -23,7 +23,10 @@
                   <tbody>
                     <tr>
                       <td>
+                      @if (!empty($logo))
+                          
                           <img  style='width:100px' src="{{asset('storage/'.$logo->Logo_path)}}">
+                      @endif
                       </td>
                       
                   </tbody>

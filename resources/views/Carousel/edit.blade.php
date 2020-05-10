@@ -14,7 +14,7 @@
                          <div class="col-sm-3">
                              <div class="form-group">
                             <label> Image :</label>                                
-                             <input type="file" name="img" class="form-control  @error('img') is-invalid @enderror" placeholder="Enter le titre" value="{{$carousel->Carousel_path}}">
+                             <input type="file" name="img" class="form-control  @error('img') is-invalid @enderror" placeholder="Enter le titre" value="{{$carousel->Carousel_path, old('img')}}">
                              @error('img')
                              <span class="text-danger"> {{$message}} </span> 
                              @enderror                                    
@@ -23,7 +23,7 @@
 
                              <div class="form-group">
                             <label> Description :</label>                                
-                             <input type="text" name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Enter le description" value="{{$carousel->Description}}">
+                             <input type="text" name="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Enter le description" value="{{$carousel->Description, old('description')}}">
                              @error('description')
                              <span class="text-danger"> {{$message}} </span> 
                              @enderror                                    
